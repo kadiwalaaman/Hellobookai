@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hellobooks AI — Your Accounting Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+      </div>
+      <span class="logo-text">hellobooks</span>
+    </div>
+    <nav class="sidebar-nav">
+      <p class="nav-label">Suggested Questions</p>
+      <button class="suggestion-btn" onclick="askSuggestion(this)">What is double-entry bookkeeping?</button>
+      <button class="suggestion-btn" onclick="askSuggestion(this)">How do I read a balance sheet?</button>
+      <button class="suggestion-btn" onclick="askSuggestion(this)">What is the difference between cash flow and profit?</button>
+      <button class="suggestion-btn" onclick="askSuggestion(this)">What should an invoice include?</button>
+      <button class="suggestion-btn" onclick="askSuggestion(this)">What is accounts receivable?</button>
+      <button class="suggestion-btn" onclick="askSuggestion(this)">What expenses can I deduct for taxes?</button>
+      <button class="suggestion-btn" onclick="askSuggestion(this)">What is Days Sales Outstanding (DSO)?</button>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="model-badge">
+        <span class="dot"></span>
+        <span>llama3.2 · Ollama</span>
+      </div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <h1 class="page-title">AI Accounting Assistant</h1>
+      <div class="topbar-right">
+        <span class="kb-badge">8 Topics · RAG</span>
+      </div>
+    </header>
+    <div class="chat-area" id="chat-area">
+      <div class="welcome-state" id="welcome-state">
+        <div class="welcome-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <path d="M12 17h.01"/>
+          </svg>
+        </div>
+        <h2>Ask me anything about accounting</h2>
+        <p>I'm trained on bookkeeping, invoices, P&amp;L, balance sheets, cash flow, AR/AP, and taxes.</p>
+      </div>
+      <div id="messages"></div>
+    </div>
+    <div class="input-area">
+      <div class="input-wrapper">
+        <textarea id="question-input" placeholder="Ask a bookkeeping or accounting question..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <button class="send-btn" id="send-btn" onclick="sendQuestion()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+      <p class="input-hint">Powered by LangChain · FAISS · HuggingFace · Ollama</p>
+    </div>
+  </main>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
